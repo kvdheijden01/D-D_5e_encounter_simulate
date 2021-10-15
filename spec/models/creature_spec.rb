@@ -13,7 +13,8 @@ RSpec.describe Creature, type: :model do
   describe "database tests" do
     it "tests if creature can be created in database" do
       goblin = create(:creature)
-      
+      goblin.save
+      expect(Creature.all.length).to eq(1)
     end
   end
 end
