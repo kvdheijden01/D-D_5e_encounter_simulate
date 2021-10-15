@@ -2,7 +2,7 @@
 <ul>
     <% @creatures.each do |creature| %>
         <li>
-        <%= creature.name %>
+        <a href="creature/<% creature.name %>"> <%= creature.name %> </a>
         </li>
     <% end %>
 
