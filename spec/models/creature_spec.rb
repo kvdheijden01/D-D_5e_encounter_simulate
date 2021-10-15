@@ -11,6 +11,9 @@ RSpec.describe Creature, type: :model do
   end
 
   describe "database tests" do
-    
+    it "tests if creature can be created in database" do
+      goblin = create(:creature)
+      
+    end
   end
 end
