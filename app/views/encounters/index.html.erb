@@ -1,0 +1,9 @@
+<h1>Encounter</h1>
+
+<h2>Enemies</h2>
+
+<% @creatures.each do |creature| %>
+        <li>
+        <%= link_to creature.name, creature %>
+        </li>
+    <% end %>
