@@ -2,8 +2,11 @@
 
 <h2>Enemies</h2>
 
-<% @creatures.each do |creature| %>
+<ul>
+    <% @encounters.enemy.creatures.each do |creature| %>
         <li>
-        <%= link_to creature.name, creature %>
+        <%= creature.name %>
         </li>
     <% end %>
+
+</ul>

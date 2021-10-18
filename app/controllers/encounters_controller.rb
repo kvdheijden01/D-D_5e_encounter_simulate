@@ -1,5 +1,9 @@
 class EncountersController < ApplicationController
   def index
-    @creatures = Encounter.first.enemy.creatures
+    @encounters = Encounter.first
+  end
+
+  def start
+    @encounters = Encounter.new
   end
 end
