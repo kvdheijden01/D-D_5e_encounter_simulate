@@ -28,9 +28,12 @@ ActiveRecord::Schema.define(version: 2021_10_18_083701) do
   create_table "enemies", force: :cascade do |t|
     t.float "HPpool"
     t.float "DmgPerRound"
+    t.integer "encounter_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["encounter_id"], name: "index_enemies_on_encounter_id"
   end
 
   add_foreign_key "creatures", "enemies"
+  add_foreign_key "enemies", "encounters"
 end

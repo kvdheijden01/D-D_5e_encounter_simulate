@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 root "creatures#index"
 
   resources :creatures
+
+  get 'encounters/index', to: 'encounters#index'
 end

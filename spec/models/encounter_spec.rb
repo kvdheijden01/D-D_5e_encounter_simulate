@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Encounter, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validation" do
+    it "model relations can retrieve creature name" do
+      creature = create(:creature)
+      enemy = create(:enemy)
+      encounter = create(:encounter)
+      enemy.creatures.push(creature)
+      encounter.enemy = enemy
+      expect(encounter.enemy.creatures.first.name).to eq(creature.name)
+    end
+
+  end
 end

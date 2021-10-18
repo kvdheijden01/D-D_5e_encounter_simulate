@@ -17,7 +17,6 @@ RSpec.describe Enemy, type: :model do
       enemy.creatures.push(imp)
       expect(enemy.creatures[0].name).to eq(goblin.name)
       expect(enemy.creatures[1].name).to eq(imp.name)
-      
     end
 
   end
