@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_141858) do
+ActiveRecord::Schema.define(version: 2021_10_18_083701) do
 
   create_table "creatures", force: :cascade do |t|
     t.string "name"
+    t.integer "enemy_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["enemy_id"], name: "index_creatures_on_enemy_id"
+  end
+
+  create_table "encounters", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "enemies", force: :cascade do |t|
+    t.float "HPpool"
+    t.float "DmgPerRound"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "creatures", "enemies"
 end
