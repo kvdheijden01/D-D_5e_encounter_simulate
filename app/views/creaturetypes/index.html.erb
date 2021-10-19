@@ -1,0 +1,12 @@
+<h1>Creaturetypes</h1>
+
+<ul>
+    <% @creaturetypes.each do |creaturetype| %>
+        <li>
+        <%= link_to creaturetype.name, creaturetype %>
+        </li>
+    <% end %>
+
+</ul>
+
+<%= link_to "New Creaturetype", new_creaturetype_path %>

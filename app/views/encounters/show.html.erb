@@ -5,7 +5,7 @@
 <ul>
     <% @encounters.enemy.creatures.each do |creature| %>
         <li>
-        <%= creature.name %>
+        <%= creature.creaturetype.name %>
         </li>
     <% end %>
 

@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :creature do
+  factory :creaturetype do
     name { "MyString" }
   end
 end

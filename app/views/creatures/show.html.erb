@@ -1,8 +1,0 @@
-<h1><%= @creature.name %></h1>
-
-<ul>
-    <li> <%= link_to "Edit", edit_creature_path(@creature) %> </li>
-    <li> <%= link_to "Destroy", creature_path(@creature),
-                        method: :delete,
-                        data: { confirm: "Are you sure?" } %> </li>
-</ul>

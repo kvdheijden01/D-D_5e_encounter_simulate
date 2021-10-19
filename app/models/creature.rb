@@ -1,4 +1,3 @@
 class Creature < ApplicationRecord
-    validates :name, presence: true , uniqueness: true
-    
+    belongs_to :creaturetype
 end

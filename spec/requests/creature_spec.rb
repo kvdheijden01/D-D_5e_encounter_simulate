@@ -3,16 +3,16 @@ require 'rails_helper'
 RSpec.describe "Creatures", type: :request do
   describe "GET /index" do
     it "returns http success" do
-      get "/creatures"
+      get "/creaturetypes"
       expect(response).to have_http_status(:ok)
     end
 
-    it "displays a created creatures name" do
-      creature = create(:creature)
-      creature2 = create(:creature, name: "Goblin")
-      get '/creatures'
-      expect(response.body).to include(creature.name)
-      expect(response.body).to include(creature2.name)
+    it "displays a created creaturetypes name" do
+      creaturetype = create(:creaturetype)
+      creaturetype2 = create(:creaturetype, name: "Goblin")
+      get '/creaturetypes'
+      expect(response.body).to include(creaturetype.name)
+      expect(response.body).to include(creaturetype2.name)
     end
 
   end

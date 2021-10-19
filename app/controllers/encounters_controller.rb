@@ -19,12 +19,17 @@ class EncountersController < ApplicationController
 
   def add
     @encounters = Encounter.find(params[:id])
-    @creatures = Creature.all
+    @creaturetypes = Creaturetype.all
   end
 
   def add_creature
     @encounters = Encounter.find(params[:id])
-    @encounters.enemy.creatures.push(Creature.find(params[:creature_id]))
+    creature = Creature.new
+    creature.creaturetype = Creaturetype.find(params[:creaturetypeid])
+
+    @encounters.enemy.creatures.push(creature)
+
+    redirect_to @encounters
   end
 
 end

@@ -1,12 +1,12 @@
 <h1>Add Creatures to Encounter</h1>
 
 <ul>
-    <% @creatures.each do |creature| %>
+    <% @creaturetypes.each do |creature| %>
         <li>
-        <%= button_to creature.name, action: "add_creature", params: {creature_id: creature.id, id: @encounters.id} %>
+        <%= button_to creature.name, action: "add_creature", params: {creaturetypeid: creature.id, id: @encounters.id} %>
         </li>
     <% end %>
 
 </ul>
 
-<%= link_to "New Creature", new_creature_path %>
+<%= link_to "New Creature Type", new_creaturetype_path %>
