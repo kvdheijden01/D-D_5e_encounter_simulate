@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-root "creatures#index"
+root "encounters#start"
 
   resources :creatures
 
-  get 'encounters/index', to: 'encounters#index'
+  resources :encounters
+
+  post 'encounters/new', to: 'encounters#new'
+  post 'encounters/add', to: 'encounters#add'
+  post 'encounters/add_creature', to: 'encounters#add_creature'
+
 end

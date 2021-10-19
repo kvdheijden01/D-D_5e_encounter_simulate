@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Encounters", type: :request do
-  describe "GET /index" do
+  describe "GET /show" do
 
     it "returns http success" do
       encounter_setup("goblin", "imp")
-      get "/encounters/index"
+      get "/encounters/1"
       expect(response).to have_http_status(:success)
     end
 
     it "displays enemy creatures" do
       encounter_setup("goblin", "imp")
-      get "/encounters/index"
+      get "/encounters/1"
       expect(response.body).to include("goblin")
       expect(response.body).to include("imp")
     end
