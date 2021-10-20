@@ -16,6 +16,14 @@
   </div>
 
   <div>
+    <%= form.label :AC %><br>
+    <%= form.number_field :AC %>
+    <% creaturetype.errors.full_messages_for(:AC).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

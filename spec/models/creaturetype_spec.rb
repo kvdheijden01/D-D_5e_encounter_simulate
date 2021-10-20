@@ -22,5 +22,11 @@ RSpec.describe Creaturetype, type: :model do
       goblin = create(:creaturetype, name: "Goblin", HP: 7)
       expect(goblin.HP).to eq(7)
     end
+
+    it "tests if creaturetype has AC" do
+      goblin = create(:creaturetype, name: "Goblin", AC: 15)
+      expect(goblin.AC).to eq(15)
+    end
+
   end
 end

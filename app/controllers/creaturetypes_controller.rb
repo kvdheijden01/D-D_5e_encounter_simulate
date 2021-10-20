@@ -44,7 +44,7 @@ class CreaturetypesController < ApplicationController
 
   private
     def creaturetype_params
-      params.require(:creaturetype).permit(:name, :HP)
+      params.require(:creaturetype).permit(:name, :HP, :AC)
     end
 
 end
