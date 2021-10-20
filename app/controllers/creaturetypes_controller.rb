@@ -39,7 +39,7 @@ class CreaturetypesController < ApplicationController
     @creaturetype =Creaturetype.find(params[:id])
     @creaturetype.destroy
 
-    redirect_to root_path
+    redirect_to "creaturetypes#index"
   end
 
   private

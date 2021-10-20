@@ -21,12 +21,19 @@ RSpec.describe "Creaturetypes", type: :request do
       get "/creaturetypes/1"
       expect(response.body).to include("HP: 1")
     end
+
+    it "tests if attack is depicted" do
+      encounter_setup("Goblin")
+      get "/creaturetypes/1"
+      expect(response.body).to include("Fist")
+    end
   end
 
   def encounter_setup(*names)
     enemy = create(:enemy)
     for name in names
       creaturetype = create(:creaturetype, name: name)
+      creaturetype.attacks.push(create(:attack))
       enemy.creatures.push(create(:creature, creaturetype: creaturetype))
     end
       encounter = create(:encounter)

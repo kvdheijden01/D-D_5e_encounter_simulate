@@ -1,0 +1,30 @@
+<%= form_with model: attack do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% attack.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :ability_mod %><br>
+    <%= form.text_field :ability_mod %>
+    <% attack.errors.full_messages_for(:ability_mod).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :dmg %><br>
+    <%= form.number_field :dmg %>
+    <% attack.errors.full_messages_for(:dmg).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= hidden_field_tag 'id', params[:id]  %>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<h1><%= @attack.name %></h1>
+
+<p> <%= "Ability Modifier: " + @attack.ability_mod %> </p>
+<p> <%= "Damage: " + @attack.dmg.to_s %> </p>
+
+<ul>
+    <li> <%= link_to "Edit", edit_attack_path(@attack) %> </li>
+    <li> <%= link_to "Destroy", attack_path(@attack),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %> </li>
+</ul>

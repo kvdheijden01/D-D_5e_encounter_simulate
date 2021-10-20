@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_20_090124) do
+ActiveRecord::Schema.define(version: 2021_10_20_113009) do
+
+  create_table "attacks", force: :cascade do |t|
+    t.string "name"
+    t.string "ability_mod"
+    t.integer "dmg"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "creaturetype_id"
+    t.index ["creaturetype_id"], name: "index_attacks_on_creaturetype_id"
+  end
 
   create_table "creatures", force: :cascade do |t|
     t.integer "enemy_id"
@@ -42,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_10_20_090124) do
     t.index ["encounter_id"], name: "index_enemies_on_encounter_id"
   end
 
+  add_foreign_key "attacks", "creaturetypes"
   add_foreign_key "creatures", "creaturetypes"
   add_foreign_key "creatures", "enemies"
   add_foreign_key "enemies", "encounters"

@@ -2,6 +2,18 @@
 
 <p> <%= "HP: " + @creaturetype.HP.to_s %> </p>
 
+<h2>Attacks</h2>
+<ul>
+    <% @creaturetype.attacks.each do |attack| %>
+        <li>
+        <%= link_to attack.name, attack %>
+        </li>
+    <% end %>
+
+</ul>
+
+<%= link_to "Add attack", action: "new", controller: "attacks", params: {id: @creaturetype.id} %>
+
 <ul>
     <li> <%= link_to "Edit", edit_creaturetype_path(@creaturetype) %> </li>
     <li> <%= link_to "Destroy", creaturetype_path(@creaturetype),
