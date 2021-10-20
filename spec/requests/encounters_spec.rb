@@ -21,7 +21,8 @@ RSpec.describe "Encounters", type: :request do
   def encounter_setup(*names)
     enemy = create(:enemy)
     for name in names
-      enemy.creatures.push(create(:creature, name: name))
+      creaturetype = create(:creaturetype, name: name)
+      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
     end
       encounter = create(:encounter)
       encounter.enemy = enemy

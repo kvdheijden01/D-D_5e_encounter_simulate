@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Creatures", type: :request do
+RSpec.describe "Creaturetypes", type: :request do
   describe "GET /index" do
     it "returns http success" do
       get "/creaturetypes"
