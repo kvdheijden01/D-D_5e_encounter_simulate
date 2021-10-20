@@ -3,5 +3,6 @@ FactoryBot.define do
     name { "MyString" }
     HP { 1 }
     AC { 10 }
+    proficiency { 2 }
   end
 end

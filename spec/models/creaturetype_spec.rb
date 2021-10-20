@@ -28,5 +28,10 @@ RSpec.describe Creaturetype, type: :model do
       expect(goblin.AC).to eq(15)
     end
 
+    it "tests if creaturetype has proficiency" do
+      goblin = create(:creaturetype, name: "Goblin", proficiency: 2)
+      expect(goblin.proficiency).to eq(2)
+    end
+
   end
 end

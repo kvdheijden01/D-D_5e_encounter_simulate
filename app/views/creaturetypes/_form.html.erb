@@ -24,6 +24,14 @@
   </div>
 
   <div>
+    <%= form.label :proficiency %><br>
+    <%= form.number_field :proficiency %>
+    <% creaturetype.errors.full_messages_for(:proficiency).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
