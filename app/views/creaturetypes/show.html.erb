@@ -1,5 +1,7 @@
 <h1><%= @creaturetype.name %></h1>
 
+<p> <%= "HP: " + @creaturetype.HP.to_s %> </p>
+
 <ul>
     <li> <%= link_to "Edit", edit_creaturetype_path(@creaturetype) %> </li>
     <li> <%= link_to "Destroy", creaturetype_path(@creaturetype),

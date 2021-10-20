@@ -7,16 +7,32 @@ RSpec.describe "Creaturetypes", type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    it "displays a created creaturetypes name" do
-      creaturetype = create(:creaturetype)
-      creaturetype2 = create(:creaturetype, name: "Goblin")
-      get '/creaturetypes'
-      expect(response.body).to include(creaturetype.name)
-      expect(response.body).to include(creaturetype2.name)
-    end
-
   end
 
+  describe "depiction" do
+    it "tests if name is depicted" do
+      encounter_setup("Goblin")
+      get "/creaturetypes/1"
+      expect(response.body).to include("Goblin")
+    end
+
+    it "tests if hp is depicted" do
+      encounter_setup("Goblin")
+      get "/creaturetypes/1"
+      expect(response.body).to include("HP: 1")
+    end
+  end
+
+  def encounter_setup(*names)
+    enemy = create(:enemy)
+    for name in names
+      creaturetype = create(:creaturetype, name: name)
+      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
+    end
+      encounter = create(:encounter)
+      encounter.enemy = enemy
+      encounter.save
+  end
 
 
 end

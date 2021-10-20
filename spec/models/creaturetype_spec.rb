@@ -20,7 +20,7 @@ RSpec.describe Creaturetype, type: :model do
 
     it "tests if creaturetype has HP" do
       goblin = create(:creaturetype, name: "Goblin", HP: 7)
-      expect(goblin).to be_valid
+      expect(goblin.HP).to eq(7)
     end
   end
 end

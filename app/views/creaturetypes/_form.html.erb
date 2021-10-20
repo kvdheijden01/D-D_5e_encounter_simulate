@@ -8,6 +8,14 @@
   </div>
 
   <div>
+    <%= form.label :HP %><br>
+    <%= form.number_field :HP %>
+    <% creaturetype.errors.full_messages_for(:HP).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
