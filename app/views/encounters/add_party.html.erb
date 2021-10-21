@@ -1,0 +1,12 @@
+<h1>Add Players to Encounter</h1>
+
+<ul>
+    <% @players.each do |player| %>
+        <li>
+        <%= button_to player.name, action: "add_player", params: {playerid: player.id, id: @encounters.id} %>
+        </li>
+    <% end %>
+
+</ul>
+
+<%= link_to "New Player", new_player_path %>

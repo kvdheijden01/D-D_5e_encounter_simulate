@@ -14,5 +14,16 @@ RSpec.describe Encounter, type: :model do
       expect(encounter.enemy.creatures.first.creaturetype.name).to eq(creaturetype.name)
     end
 
+    it "model relations can retrieve player name" do
+      player = create(:player)
+    
+      party = create(:party)
+      encounter = create(:encounter)
+      party.players.push(player)
+      encounter.party = party
+      
+      expect(encounter.party.players.first.name).to eq(player.name)
+    end
+
   end
 end

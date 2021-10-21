@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_21_092901) do
+ActiveRecord::Schema.define(version: 2021_10_21_140828) do
 
   create_table "attacks", force: :cascade do |t|
     t.string "name"
@@ -60,8 +60,36 @@ ActiveRecord::Schema.define(version: 2021_10_21_092901) do
     t.index ["encounter_id"], name: "index_enemies_on_encounter_id"
   end
 
+  create_table "parties", force: :cascade do |t|
+    t.float "HPpool"
+    t.float "DmgPerRound"
+    t.integer "encounter_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["encounter_id"], name: "index_parties_on_encounter_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.integer "HP"
+    t.integer "AC"
+    t.integer "proficiency"
+    t.integer "STR"
+    t.integer "DEX"
+    t.integer "CON"
+    t.integer "INT"
+    t.integer "WIS"
+    t.integer "CHA"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "party_id"
+    t.index ["party_id"], name: "index_players_on_party_id"
+  end
+
   add_foreign_key "attacks", "creaturetypes"
   add_foreign_key "creatures", "creaturetypes"
   add_foreign_key "creatures", "enemies"
   add_foreign_key "enemies", "encounters"
+  add_foreign_key "parties", "encounters"
+  add_foreign_key "players", "parties"
 end

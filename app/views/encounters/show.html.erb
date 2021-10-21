@@ -10,5 +10,16 @@
     <% end %>
 
 </ul>
+<%= button_to "Add creature", action: "add_enemy", params: { id: @encounters.id } %>
 
-<%= button_to "Add creature", action: "add", params: { id: @encounters.id } %>
+<h2>Party</h2>
+
+<ul>
+    <% @encounters.party.players.each do |player| %>
+        <li>
+        <%= player.name %>
+        </li>
+    <% end %>
+
+</ul>
+<%= button_to "Add player", action: "add_party", params: { id: @encounters.id } %>

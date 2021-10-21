@@ -1,0 +1,2 @@
+class Attackplayer < ApplicationRecord
+end

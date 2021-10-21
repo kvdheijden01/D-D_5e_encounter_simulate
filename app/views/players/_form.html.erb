@@ -1,0 +1,85 @@
+<%= form_with model: player do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% player.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :HP %><br>
+    <%= form.number_field :HP %>
+    <% player.errors.full_messages_for(:HP).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :AC %><br>
+    <%= form.number_field :AC %>
+    <% player.errors.full_messages_for(:AC).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :proficiency %><br>
+    <%= form.number_field :proficiency %>
+    <% player.errors.full_messages_for(:proficiency).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :STR %><br>
+    <%= form.number_field :STR %>
+    <% player.errors.full_messages_for(:STR).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :DEX %><br>
+    <%= form.number_field :DEX %>
+    <% player.errors.full_messages_for(:DEX).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :CON %><br>
+    <%= form.number_field :CON %>
+    <% player.errors.full_messages_for(:CON).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :INT %><br>
+    <%= form.number_field :INT %>
+    <% player.errors.full_messages_for(:INT).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :WIS %><br>
+    <%= form.number_field :WIS %>
+    <% player.errors.full_messages_for(:WIS).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :CHA %><br>
+    <%= form.number_field :CHA %>
+    <% player.errors.full_messages_for(:CHA).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
