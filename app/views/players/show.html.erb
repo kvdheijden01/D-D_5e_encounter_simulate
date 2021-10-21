@@ -27,6 +27,17 @@
 </tbody>
 </table>
 
+<h2>Attacks</h2>
+<ul>
+    <% @player.attackplayers.each do |attackplayer| %>
+        <li>
+        <%= link_to attackplayer.name, attackplayer %>
+        </li>
+    <% end %>
+
+</ul>
+<%= link_to "Add attack", action: "new", controller: "attackplayers", params: {id: @player.id} %>
+
 <ul>
     <li> <%= link_to "Edit", edit_player_path(@player) %> </li>
     <li> <%= link_to "Destroy", player_path(@player),

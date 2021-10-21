@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_21_140828) do
+ActiveRecord::Schema.define(version: 2021_10_21_144821) do
+
+  create_table "attackplayers", force: :cascade do |t|
+    t.string "name"
+    t.string "ability_mod"
+    t.integer "dmg"
+    t.integer "player_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_attackplayers_on_player_id"
+  end
 
   create_table "attacks", force: :cascade do |t|
     t.string "name"
@@ -86,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_10_21_140828) do
     t.index ["party_id"], name: "index_players_on_party_id"
   end
 
+  add_foreign_key "attackplayers", "players"
   add_foreign_key "attacks", "creaturetypes"
   add_foreign_key "creatures", "creaturetypes"
   add_foreign_key "creatures", "enemies"

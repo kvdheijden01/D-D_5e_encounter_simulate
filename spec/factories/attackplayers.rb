@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :attackplayer do
-    name { "MyString" }
-    ability_mod { "MyString" }
-    dmg { "MyString" }
+    name { "Fist"}
+    ability_mod { "STR" }
+    dmg { 0 }
   end
 end

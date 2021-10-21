@@ -22,22 +22,23 @@ RSpec.describe "Players", type: :request do
       expect(response.body).to include("HP: 1")
     end
 
-    it "tests if attack is depicted" do
+    it "tests if attackplayer is depicted" do
       encounter_setup("Fighter")
       get "/players/1"
       expect(response.body).to include("Fist")
     end
 
   def encounter_setup(*names)
-    enemy = create(:enemy)
+    party = create(:party)
     for name in names
       player = create(:player, name: name)
-      player.attacks.push(create(:attack))
-      enemy.creatures.push(create(:creature, player: player))
+      player.attackplayers.push(create(:attackplayer))
+      party.players.push(player)
     end
       encounter = create(:encounter)
-      encounter.enemy = enemy
+      encounter.party = party
       encounter.save
+    end
   end
 
 

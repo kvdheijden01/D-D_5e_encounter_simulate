@@ -9,4 +9,6 @@ class Player < ApplicationRecord
     validates :INT, presence: true
     validates :WIS, presence: true
     validates :CHA, presence: true
+
+    has_many :attackplayers
 end
