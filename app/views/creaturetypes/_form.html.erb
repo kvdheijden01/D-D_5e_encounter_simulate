@@ -32,6 +32,54 @@
   </div>
 
   <div>
+    <%= form.label :STR %><br>
+    <%= form.number_field :STR %>
+    <% creaturetype.errors.full_messages_for(:STR).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :DEX %><br>
+    <%= form.number_field :DEX %>
+    <% creaturetype.errors.full_messages_for(:DEX).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :CON %><br>
+    <%= form.number_field :CON %>
+    <% creaturetype.errors.full_messages_for(:CON).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :INT %><br>
+    <%= form.number_field :INT %>
+    <% creaturetype.errors.full_messages_for(:INT).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :WIS %><br>
+    <%= form.number_field :WIS %>
+    <% creaturetype.errors.full_messages_for(:WIS).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :CHA %><br>
+    <%= form.number_field :CHA %>
+    <% creaturetype.errors.full_messages_for(:CHA).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

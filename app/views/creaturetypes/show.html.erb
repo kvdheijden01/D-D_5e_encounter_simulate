@@ -4,6 +4,29 @@
 <p> <%= "AC: " + @creaturetype.AC.to_s %> </p>
 <p> <%= "Proficiency: +" + @creaturetype.proficiency.to_s %> </p>
 
+<table>
+<thead>
+  <tr>
+    <th>STR</th>
+    <th>DEX</th>
+    <th>CON</th>
+    <th>INT</th>
+    <th>WIS</th>
+    <th>CHA</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><%= @creaturetype.STR.to_s %></td>
+    <td><%= @creaturetype.DEX.to_s %></td>
+    <td><%= @creaturetype.CON.to_s %></td>
+    <td><%= @creaturetype.INT.to_s %></td>
+    <td><%= @creaturetype.WIS.to_s %></td>
+    <td><%= @creaturetype.CHA.to_s %></td>
+  </tr>
+</tbody>
+</table>
+
 <h2>Attacks</h2>
 <ul>
     <% @creaturetype.attacks.each do |attack| %>

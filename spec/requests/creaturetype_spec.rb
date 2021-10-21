@@ -27,7 +27,6 @@ RSpec.describe "Creaturetypes", type: :request do
       get "/creaturetypes/1"
       expect(response.body).to include("Fist")
     end
-  end
 
   def encounter_setup(*names)
     enemy = create(:enemy)

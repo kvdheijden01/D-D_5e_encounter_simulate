@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_20_144827) do
+ActiveRecord::Schema.define(version: 2021_10_21_092901) do
 
   create_table "attacks", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 2021_10_20_144827) do
     t.integer "HP"
     t.integer "AC"
     t.integer "proficiency"
+    t.integer "STR"
+    t.integer "DEX"
+    t.integer "CON"
+    t.integer "INT"
+    t.integer "WIS"
+    t.integer "CHA"
   end
 
   create_table "encounters", force: :cascade do |t|

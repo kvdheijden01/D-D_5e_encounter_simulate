@@ -33,5 +33,16 @@ RSpec.describe Creaturetype, type: :model do
       expect(goblin.proficiency).to eq(2)
     end
 
+    it "tests if creaturetype has ability scores" do
+      goblin = create(:creaturetype, name: "Goblin", STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 10, CHA: 10)
+      expect(goblin.STR).to eq(10)
+      expect(goblin.DEX).to eq(10)
+      expect(goblin.CON).to eq(10)
+      expect(goblin.INT).to eq(10)
+      expect(goblin.WIS).to eq(10)
+      expect(goblin.CHA).to eq(10)
+
+    end
+
   end
 end
