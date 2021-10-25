@@ -21,6 +21,14 @@ RSpec.describe Enemy, type: :model do
       expect(enemy.HPpool).to eq(2)
     end
 
+    it "tests if AvrAC is calculated" do
+      enemy = enemy_setup('Goblin', 'Imp')
+      enemy.creatures.first.creaturetype.ac = 15
+      enemy.creatures.last.creaturetype.ac = 15
+      expect(enemy.creatures.first.creaturetype.ac).to eq(15)
+      expect(enemy.cal_AvrAC).to eq(12.5)
+    end
+
   end
 
   def enemy_setup(*names)
