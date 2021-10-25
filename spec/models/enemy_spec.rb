@@ -22,11 +22,15 @@ RSpec.describe Enemy, type: :model do
     end
 
     it "tests if AvrAC is calculated" do
-      enemy = enemy_setup('Goblin', 'Imp')
-      enemy.creatures.first.creaturetype.ac = 15
-      enemy.creatures.last.creaturetype.ac = 15
-      expect(enemy.creatures.first.creaturetype.ac).to eq(15)
-      expect(enemy.cal_AvrAC).to eq(12.5)
+      enemy = create(:enemy)
+      creaturetype = create(:creaturetype, name: "Goblin", AC: 15)
+      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
+
+      creaturetype = create(:creaturetype, name: "Imp")
+      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
+
+      expect(enemy.creatures.first.creaturetype.AC).to eq(15)
+      expect(enemy.cal_avr_ac).to eq(12.5)
     end
 
   end

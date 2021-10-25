@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_25_132350) do
+ActiveRecord::Schema.define(version: 2021_10_21_144821) do
 
   create_table "attackplayers", force: :cascade do |t|
     t.string "name"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_10_25_132350) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "HP"
-    t.integer "ac"
+    t.integer "AC"
     t.integer "proficiency"
     t.integer "STR"
     t.integer "DEX"

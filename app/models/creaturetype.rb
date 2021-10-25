@@ -1,7 +1,7 @@
 class Creaturetype < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :HP, presence: true
-  validates :ac, presence: true
+  validates :AC, presence: true
   validates :proficiency, presence: true
   validates :STR, presence: true
   validates :DEX, presence: true

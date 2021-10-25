@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :creaturetype do
     name { "MyString" }
     HP { 1 }
-    ac { 10 }
+    AC { 10 }
     proficiency { 2 }
     STR { 10 }
     DEX { 10 }

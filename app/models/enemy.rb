@@ -3,7 +3,7 @@ class Enemy < ApplicationRecord
 
   def cal_HPpool
     creatures.each do |creature|
-      self.HP_pool += creature.creaturetype.HP
+      self.HPpool += creature.creaturetype.HP
     end
   end
 
@@ -14,6 +14,6 @@ class Enemy < ApplicationRecord
       numerator += creature.creaturetype.AC
       denominator += 1
     end
-    numerator / denominator
+    numerator.to_f / denominator.to_f
   end
 end
