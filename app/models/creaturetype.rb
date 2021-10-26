@@ -12,11 +12,58 @@ class Creaturetype < ApplicationRecord
 
   has_many :attacks
 
-  def ac
-    @ac
+  def cal_ab_mod(ability_mod)
+    abilityscore= 0
+    if ability_mod == "STR"
+      abilityscore = self.STR
+    elsif ability_mod == "DEX"
+      abilityscore = self.DEX
+    elsif ability_mod == "CON"
+      abilityscore = self.CON
+    elsif ability_mod == "INT"
+      abilityscore = self.INT
+    elsif ability_mod == "WIS"
+      abilityscore = self.WIS
+    elsif ability_mod == "CHA"
+      abilityscore = self.CHA
+    end
+    cal_modifier(abilityscore)
   end
 
-  def ac=(ac)
-    @ac = ac
+  def cal_modifier(abilityscore)
+    if abilityscore <= 1
+      return -5
+    elsif abilityscore > 1 and abilityscore <= 3
+      return -4
+    elsif abilityscore > 3 and abilityscore <= 5
+      return -3
+    elsif abilityscore > 5 and abilityscore <= 7
+      return -2
+    elsif abilityscore > 7 and abilityscore <= 9
+      return -1
+    elsif abilityscore > 9 and abilityscore <= 11
+      return 0
+    elsif abilityscore > 11 and abilityscore <= 13
+      return 1
+    elsif abilityscore > 13 and abilityscore <= 15
+      return 2
+    elsif abilityscore > 15 and abilityscore <= 17
+      return 3
+    elsif abilityscore > 17 and abilityscore <= 19
+      return 4
+    elsif abilityscore > 19 and abilityscore <= 21
+      return 5
+    elsif abilityscore > 21 and abilityscore <= 23
+      return 6
+    elsif abilityscore > 23 and abilityscore <= 25
+      return 7
+    elsif abilityscore > 25 and abilityscore <= 27
+      return 8
+    elsif abilityscore > 27 and abilityscore <= 29
+      return 9
+    elsif abilityscore > 29
+      return 10
+    end
+    
   end
 end

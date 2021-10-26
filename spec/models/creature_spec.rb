@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Creature, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "calculations" do
+    it "tests if attack bonus is calculated" do
+      creaturetype = create(:creaturetype)
+      creaturetype.attacks.push(create(:attack))
+      creature = create(:creature, creaturetype: creaturetype)
+      expect(creature.cal_attack_bonus).to eq(2)
+    end
+  end
 end
