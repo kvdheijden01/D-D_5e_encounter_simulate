@@ -13,7 +13,7 @@ class Creaturetype < ApplicationRecord
   has_many :attacks
 
   def cal_ab_mod(ability_mod)
-    abilityscore= 0
+    abilityscore = nil
     if ability_mod == "STR"
       abilityscore = self.STR
     elsif ability_mod == "DEX"

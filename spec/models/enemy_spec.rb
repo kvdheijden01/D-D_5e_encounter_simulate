@@ -33,6 +33,21 @@ RSpec.describe Enemy, type: :model do
       expect(enemy.cal_avr_ac).to eq(12.5)
     end
 
+    it "tests if avr_ab is calculated" do
+      enemy = create(:enemy)
+      creaturetype = create(:creaturetype, DEX: 16)
+      creaturetype.attacks.push(create(:attack, ability_mod: "DEX"))
+      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
+
+      creaturetype = create(:creaturetype, name: "Imp")
+      creaturetype.attacks.push(create(:attack))
+      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
+
+      expect(enemy.cal_avr_ab).to eq(3.5)
+    end
+
+    it 
+
   end
 
   def enemy_setup(*names)

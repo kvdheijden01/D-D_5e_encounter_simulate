@@ -16,4 +16,14 @@ class Enemy < ApplicationRecord
     end
     numerator.to_f / denominator.to_f
   end
+
+  def cal_avr_ab
+    numerator = 0
+    denominator = 0
+    creatures.each do |creature|
+      numerator += creature.cal_attack_bonus
+      denominator += 1
+    end
+    numerator.to_f / denominator.to_f
+  end
 end
