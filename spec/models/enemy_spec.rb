@@ -46,18 +46,6 @@ RSpec.describe Enemy, type: :model do
       expect(enemy.cal_avr_ab).to eq(3.5)
     end
 
-    it "tests if acc_mod is calcualted" do
-      enemy = create(:enemy)
-      creaturetype = create(:creaturetype, DEX: 16, AC: 15)
-      creaturetype.attacks.push(create(:attack, ability_mod: "DEX"))
-      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
-
-      creaturetype = create(:creaturetype, name: "Imp")
-      creaturetype.attacks.push(create(:attack))
-      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
-
-      expect(enemy.cal_acc_mod).to eq(0.575)
-    end
 
     it "tests if avr attack damage is calculated" do
       enemy = create(:enemy)
@@ -72,18 +60,6 @@ RSpec.describe Enemy, type: :model do
       expect(enemy.cal_avr_dmg).to eq(5.0)
     end
 
-    it "tests if dmg per round is calculated" do
-      enemy = create(:enemy)
-      creaturetype = create(:creaturetype, name: "Goblin", DEX: 16, AC: 15)
-      creaturetype.attacks.push(create(:attack, ability_mod: "DEX", dmg: 4.5))
-      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
-
-      creaturetype = create(:creaturetype, name: "Imp")
-      creaturetype.attacks.push(create(:attack))
-      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
-
-      expect(enemy.cal_dmg_per_round).to eq(2.875)
-    end
 
   end
 

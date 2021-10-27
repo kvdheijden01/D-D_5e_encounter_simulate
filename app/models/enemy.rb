@@ -2,9 +2,11 @@ class Enemy < ApplicationRecord
   has_many :creatures
 
   def cal_HPpool
+    hp_pool = 0
     creatures.each do |creature|
-      self.HPpool += creature.creaturetype.HP
+      hp_pool += creature.creaturetype.HP
     end
+    self.HPpool = hp_pool
   end
 
   def cal_avr_ac
@@ -27,10 +29,6 @@ class Enemy < ApplicationRecord
     numerator.to_f / denominator.to_f
   end
 
-  def cal_acc_mod
-    ((cal_avr_ab + 10.5) - cal_avr_ac) * 0.05 + 0.5
-  end
-
   def cal_avr_dmg
     numerator = 0
     denominator = 0
@@ -39,9 +37,5 @@ class Enemy < ApplicationRecord
       denominator += 1
     end
     numerator.to_f / denominator.to_f
-  end
-
-  def cal_dmg_per_round
-    cal_acc_mod * cal_avr_dmg
   end
 end

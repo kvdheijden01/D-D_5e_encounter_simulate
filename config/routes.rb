@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   post 'encounters/add_player', to: 'encounters#add_player'
   post 'creaturetypes/add_attack', to: 'creaturetypes#add_attack'
   post 'players/add_attack', to: 'players#add_attack'
+  post 'encounters/simulate', to: 'encounters#simulate'
 
 end

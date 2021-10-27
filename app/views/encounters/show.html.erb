@@ -10,6 +10,22 @@
     <% end %>
 
 </ul>
+
+<table>
+<thead>
+  <tr>
+    <th>HP pool</th>
+    <th><%= @encounters.enemy.HPpool %></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Dmg per round</td>
+    <td><%= @encounters.enemy.DmgPerRound.round(3) %></td>
+  </tr>
+</tbody>
+</table>
+
 <%= button_to "Add creature", action: "add_enemy", params: { id: @encounters.id } %>
 
 <h2>Party</h2>
@@ -22,4 +38,23 @@
     <% end %>
 
 </ul>
+
+<table>
+<thead>
+  <tr>
+    <th>HP pool</th>
+    <th><%= @encounters.party.HPpool %></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Dmg per round</td>
+    <td><%= @encounters.party.DmgPerRound.round(3) %></td>
+  </tr>
+</tbody>
+</table>
+
 <%= button_to "Add player", action: "add_party", params: { id: @encounters.id } %>
+
+<h2>Simulation</h2>
+<%= button_to "Calculate results", action: "simulate", params: { id: @encounters.id } %>

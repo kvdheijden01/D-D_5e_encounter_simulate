@@ -42,17 +42,6 @@ RSpec.describe Party, type: :model do
       expect(party.cal_avr_ab).to eq(3.5)
     end
 
-    it "tests if acc_mod is calcualted" do
-      party = create(:party)
-      fighter = create(:player, name: "Fighter", DEX: 16, AC: 15)
-      fighter.attackplayers.push(create(:attackplayer, ability_mod: "DEX"))
-      wizard = create(:player, name: "Wizard")
-      wizard.attackplayers.push(create(:attackplayer))
-      party.players.push(fighter)
-      party.players.push(wizard)
-
-      expect(party.cal_acc_mod).to eq(0.575)
-    end
 
     it "tests if avr attack damage is calculated" do
       party = create(:party)
@@ -66,16 +55,5 @@ RSpec.describe Party, type: :model do
       expect(party.cal_avr_dmg).to eq(5.0)
     end
 
-    it "tests if dmg per round is calculated" do
-      party = create(:party)
-      fighter = create(:player, name: "Fighter", DEX: 16, AC: 15)
-      fighter.attackplayers.push(create(:attackplayer, ability_mod: "DEX", dmg: 4.5))
-      wizard = create(:player, name: "Wizard")
-      wizard.attackplayers.push(create(:attackplayer))
-      party.players.push(fighter)
-      party.players.push(wizard)
-
-      expect(party.cal_dmg_per_round).to eq(2.875)
-    end
   end
 end

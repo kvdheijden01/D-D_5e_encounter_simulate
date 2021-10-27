@@ -17,7 +17,7 @@
 
   <div>
     <%= form.label :dmg %><br>
-    <%= form.number_field :dmg %>
+    <%= form.number_field :dmg, step: 0.5 %>
     <% attackplayer.errors.full_messages_for(:dmg).each do |message| %>
       <div><%= message %></div>
     <% end %>

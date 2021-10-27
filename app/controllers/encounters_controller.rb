@@ -1,6 +1,9 @@
 class EncountersController < ApplicationController
   def show
     @encounters = Encounter.find(params[:id])
+    @encounters.cal_dmg_per_round
+    @encounters.enemy.cal_HPpool
+    @encounters.party.cal_HPpool
   end
 
   def start
@@ -46,6 +49,11 @@ class EncountersController < ApplicationController
     @encounters.party.players.push(player)
 
     redirect_to @encounters
+  end
+
+  def simulate
+    @encounters = Encounter.find(params[:id])
+    
   end
 
 end
