@@ -40,4 +40,8 @@ class Enemy < ApplicationRecord
     end
     numerator.to_f / denominator.to_f
   end
+
+  def cal_dmg_per_round
+    cal_acc_mod * cal_avr_dmg
+  end
 end
