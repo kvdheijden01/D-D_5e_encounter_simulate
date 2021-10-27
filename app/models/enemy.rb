@@ -30,4 +30,14 @@ class Enemy < ApplicationRecord
   def cal_acc_mod
     ((cal_avr_ab + 10.5) - cal_avr_ac) * 0.05 + 0.5
   end
+
+  def cal_avr_dmg
+    numerator = 0
+    denominator = 0
+    creatures.each do |creature|
+      numerator += creature.cal_attack_dmg
+      denominator += 1
+    end
+    numerator.to_f / denominator.to_f
+  end
 end
