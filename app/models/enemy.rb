@@ -26,4 +26,8 @@ class Enemy < ApplicationRecord
     end
     numerator.to_f / denominator.to_f
   end
+
+  def cal_acc_mod
+    ((cal_avr_ab + 10.5) - cal_avr_ac) * 0.05 + 0.5
+  end
 end
