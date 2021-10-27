@@ -45,4 +45,19 @@ RSpec.describe Player, type: :model do
     end
 
   end
+
+  describe "calculations" do
+    it "tests if attack bonus is calculated" do
+      player = create(:player)
+      player.attackplayers.push(create(:attackplayer))
+      expect(player.cal_attack_bonus).to eq(2)
+    end
+
+    it "tests if attack damage is calculated" do
+      player = create(:player, STR: 16)
+      player.attackplayers.push(create(:attackplayer))
+
+      expect(player.cal_attack_dmg).to eq(5.5)
+    end
+  end
 end
