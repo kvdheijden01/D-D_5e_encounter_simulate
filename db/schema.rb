@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_26_124420) do
+ActiveRecord::Schema.define(version: 2021_10_28_143041) do
 
   create_table "attackplayers", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_124420) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "creaturetype_id"
+    t.boolean "ability_modifier_dmg"
     t.index ["creaturetype_id"], name: "index_attacks_on_creaturetype_id"
   end
 

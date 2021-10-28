@@ -24,6 +24,14 @@
   </div>
 
   <div>
+    <%= form.label :ability_modifier_dmg, "Does attack damage include ability modifier?" %><br>
+    <%= form.check_box :ability_modifier_dmg %>
+    <% attack.errors.full_messages_for(:ability_modifier_dmg).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= hidden_field_tag 'id', params[:id]  %>
     <%= form.submit %>
   </div>

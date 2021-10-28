@@ -6,6 +6,11 @@ RSpec.describe Attack, type: :model do
       attack = build(:attack)
       expect(attack).to be_valid  
     end
+
+    it "test if attack modifier boolean exisits" do
+      attack = create(:attack)
+      expect(attack.ability_modifier_dmg).to eq(true)
+    end
   end
 
   describe "instances" do
@@ -21,7 +26,7 @@ RSpec.describe Attack, type: :model do
 
     it "tests if attack has a dmg value" do
       attack = build(:attack)
-      expect(attack.dmg).to eq(0)
+      expect(attack.dmg).to eq(2.5)
     end
 
   end
