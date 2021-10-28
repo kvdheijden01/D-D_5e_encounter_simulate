@@ -80,4 +80,28 @@ RSpec.describe Encounter, type: :model do
       expect(encounter.party.DmgPerRound).to eq(2.875)
     end
   end
+
+  describe "simulation" do
+    it "tests if simulation reduces HP pool to zero" do
+      enemy = create(:enemy)
+      creaturetype = create(:creaturetype, name: "Goblin", DEX: 14, AC: 15)
+      creaturetype.attacks.push(create(:attack, ability_mod: "DEX", dmg: 3.5))
+      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
+      creaturetype = create(:creaturetype, name: "Imp")
+      creaturetype.attacks.push(create(:attack))
+      enemy.creatures.push(create(:creature, creaturetype: creaturetype))
+
+      party = create(:party)
+      fighter = create(:player, name: "Fighter", DEX: 16, AC: 18)
+      fighter.attackplayers.push(create(:attackplayer, ability_mod: "DEX", dmg: 4.5))
+      party.players.push(fighter)
+
+      encounter = create(:encounter)
+      encounter.party = party
+      encounter.enemy = enemy
+
+      encounter.simulate
+      expect(enemy.HPpool).to eq(0)
+    end
+  end
 end

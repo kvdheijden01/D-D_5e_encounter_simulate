@@ -53,7 +53,7 @@ class EncountersController < ApplicationController
 
   def simulate
     @encounters = Encounter.find(params[:id])
-    
+    @encounters.simulate
   end
 
 end
