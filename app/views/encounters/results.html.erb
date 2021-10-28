@@ -1,0 +1,41 @@
+<h1>Results</h1>
+
+<h2>Enemies</h2>
+
+<ul>
+    <% @encounters.enemy.creatures.each do |creature| %>
+        <li>
+        <%= creature.creaturetype.name %>
+        </li>
+    <% end %>
+
+</ul>
+
+<table>
+<thead>
+  <tr>
+    <th>HP pool</th>
+    <th><%= @encounters.enemy.HPpool.round(2) %></th>
+  </tr>
+</thead>
+</table>
+
+<h2>Party</h2>
+
+<ul>
+    <% @encounters.party.players.each do |player| %>
+        <li>
+        <%= player.name %>
+        </li>
+    <% end %>
+
+</ul>
+
+<table>
+<thead>
+  <tr>
+    <th>HP pool</th>
+    <th><%= @encounters.party.HPpool.round(2) %></th>
+  </tr>
+</thead>
+</table>

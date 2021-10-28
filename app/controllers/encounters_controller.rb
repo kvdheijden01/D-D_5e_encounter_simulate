@@ -9,6 +9,10 @@ class EncountersController < ApplicationController
   def start
   end
 
+  def results
+    @encounters = Encounter.find(params[:id])
+  end
+
   def new
     @encounter = Encounter.new
     enemy = Enemy.new
@@ -54,6 +58,10 @@ class EncountersController < ApplicationController
   def simulate
     @encounters = Encounter.find(params[:id])
     @encounters.simulate
+    @encounters.enemy.save
+    @encounters.party.save
+
+    redirect_to action: 'results', params: { id: @encounters.id}
   end
 
 end
