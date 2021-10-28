@@ -29,4 +29,23 @@ class Encounter < ApplicationRecord
         self.party.cal_HPpool
         self.cal_dmg_per_round
     end
+
+    def verdict
+        start_enemy_hp = self.enemy.cal_HPpool_number
+        start_party_hp = self.party.cal_HPpool_number
+
+        if party.HPpool == 0 and enemy.HPpool > 0.25*start_enemy_hp
+            return "Defeat! This encounter is close to imposible."
+        elsif party.HPpool == 0 and enemy.HPpool <= 0.25*start_enemy_hp
+            return "Defeat! This encounter is Deadly"
+        elsif party.HPpool <= 0.25*start_party_hp and enemy.HPpool == 0
+            return "Victory! This encounter is Hard"
+        elsif party.HPpool > 0.25*start_party_hp and party.HPpool <= 0.5*start_party_hp and enemy.HPpool == 0
+            return "Victory! This encounter is Medium"
+        elsif party.HPpool > 0.5*start_party_hp and party.HPpool <= 0.75*start_party_hp and enemy.HPpool == 0
+            return "Victory! This encounter is Easy"
+        elsif party.HPpool > 0.75*start_party_hp and enemy.HPpool == 0
+            return "Victory! This encounter is Trivial"
+        end
+    end
 end

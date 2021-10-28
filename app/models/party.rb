@@ -2,11 +2,20 @@ class Party < ApplicationRecord
     has_many :players
 
     def cal_HPpool
-        self.HPpool = 0
-        players.each do |player|
-          self.HPpool += player.HP
-        end
+      hp_pool = 0
+      players.each do |player|
+        hp_pool += player.HP
       end
+      self.HPpool = hp_pool.to_f
+    end
+
+    def cal_HPpool_number
+      hp_pool = 0
+      players.each do |player|
+        hp_pool += player.HP
+      end
+      return hp_pool
+    end
     
       def cal_avr_ac
         numerator = 0

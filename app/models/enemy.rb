@@ -6,7 +6,15 @@ class Enemy < ApplicationRecord
     creatures.each do |creature|
       hp_pool += creature.creaturetype.HP
     end
-    self.HPpool = hp_pool
+    self.HPpool = hp_pool.to_f
+  end
+  
+  def cal_HPpool_number
+    hp_pool = 0
+    creatures.each do |creature|
+      hp_pool += creature.creaturetype.HP
+    end
+    return hp_pool
   end
 
   def cal_avr_ac
