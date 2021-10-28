@@ -46,7 +46,7 @@ class AttackplayersController < ApplicationController
     
     private
         def attackplayer_params
-          params.require(:attackplayer).permit(:name, :ability_mod, :dmg)
+          params.require(:attackplayer).permit(:name, :ability_mod, :dmg, :ability_modifier_dmg)
         end
     
     end

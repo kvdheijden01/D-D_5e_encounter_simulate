@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_10_28_143041) do
     t.integer "player_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "ability_modifier_dmg"
     t.index ["player_id"], name: "index_attackplayers_on_player_id"
   end
 

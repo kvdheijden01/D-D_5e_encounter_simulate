@@ -2,6 +2,7 @@
 
 <p> <%= "Ability Modifier: " + @attackplayer.ability_mod %> </p>
 <p> <%= "Damage: " + @attackplayer.dmg.to_s %> </p>
+<p> <%= "Does attack damage include ability modifier?: " + @attackplayer.ability_modifier_dmg.to_s %> </p>
 
 <ul>
     <li> <%= link_to "Edit", edit_attackplayer_path(@attackplayer) %> </li>
