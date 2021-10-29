@@ -59,5 +59,17 @@ RSpec.describe Player, type: :model do
 
       expect(player.cal_attack_dmg).to eq(5.5)
     end
+
+    it "tests if attack can include and exclude abililty mod to dmg" do
+      fighter = create(:player, name: "Fighter", STR: 16)
+      fighter.attackplayers.push(create(:attackplayer))
+
+      wizard = create(:player, name: "Wizard", INT: 16)
+      wizard.attackplayers.push(create(:attackplayer, ability_mod: "INT", ability_modifier_dmg: false))
+
+      expect(fighter.cal_attack_dmg).to eq(5.5)
+      expect(wizard.cal_attack_dmg).to eq(2.5)
+
+    end
   end
 end

@@ -13,13 +13,16 @@ class Player < ApplicationRecord
     has_many :attackplayers
 
     def cal_attack_bonus
-        attack = self.attackplayers
         self.proficiency + self.cal_ab_mod(self.attackplayers.first.ability_mod)
     end
 
     def cal_attack_dmg
-        attack = self.attackplayers.first
-        attack.dmg + self.cal_ab_mod(attack.ability_mod)
+      attack = self.attackplayers.first
+      if attack.ability_modifier_dmg
+          return attack.dmg + self.cal_ab_mod(attack.ability_mod)
+      else
+          return attack.dmg
+      end
     end
 
     def cal_ab_mod(ability_mod)
