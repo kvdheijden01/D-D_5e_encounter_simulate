@@ -3,7 +3,7 @@
 <ul>
     <% @creaturetypes.each do |creature| %>
         <li>
-        <%= button_to creature.name, action: "add_creature", params: {creaturetypeid: creature.id, id: @encounters.id} %>
+        <%= button_to creature.name, { action: "add_creature", params: {creaturetypeid: creature.id, id: @encounters.id} }, { class: "add_button" } %>
         </li>
     <% end %>
 

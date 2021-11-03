@@ -1,5 +1,7 @@
 <h1>Encounter</h1>
 
+<%= button_to "Calculate results", { action: "simulate", params: { id: @encounters.id } }, { class: "simulate_button" } %>
+
 <h2>Enemies</h2>
 
 <ul>
@@ -26,7 +28,7 @@
 </tbody>
 </table>
 
-<%= button_to "Add creature", action: "add_enemy", params: { id: @encounters.id } %>
+<%= button_to "Add creature", { action: "add_enemy", params: { id: @encounters.id } }, { class: "add_button" } %>
 
 <h2>Party</h2>
 
@@ -40,13 +42,11 @@
 </ul>
 
 <table>
-<thead>
+<tbody>
   <tr>
     <th>HP pool</th>
     <th><%= @encounters.party.HPpool %></th>
   </tr>
-</thead>
-<tbody>
   <tr>
     <td>Dmg per round</td>
     <td><%= @encounters.party.DmgPerRound.round(2) %></td>
@@ -54,7 +54,10 @@
 </tbody>
 </table>
 
-<%= button_to "Add player", action: "add_party", params: { id: @encounters.id } %>
+<%= button_to "Add player", { action: "add_party", params: { id: @encounters.id } }, { class: "add_button" } %>
 
-<h2>Simulation</h2>
-<%= button_to "Calculate results", action: "simulate", params: { id: @encounters.id } %>
+<h2>Create</h2>
+
+<%= link_to "Creatures", action: "index", controller: "creaturetypes" %>
+
+<%= link_to "Players", action: "index", controller: "players" %>

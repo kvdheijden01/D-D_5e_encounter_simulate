@@ -3,7 +3,7 @@
 <ul>
     <% @players.each do |player| %>
         <li>
-        <%= button_to player.name, action: "add_player", params: {playerid: player.id, id: @encounters.id} %>
+        <%= button_to player.name, { action: "add_player", params: {playerid: player.id, id: @encounters.id} }, { class: "add_button" } %>
         </li>
     <% end %>
 
